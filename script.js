@@ -239,7 +239,10 @@ document.addEventListener('keydown', event => {
   else if (event.key === 'ArrowRight') playerMove(1);
   else if (event.key === 'ArrowDown') playerDrop();
   else if (event.key === 'ArrowUp') playerRotate(1);
-  else if (event.key === ' ') hardDrop();
+  else if (event.code === 'Space') {
+  event.preventDefault();
+  hardDrop();
+}
 });
 
 document.getElementById('startBtn').addEventListener('click', () => {
