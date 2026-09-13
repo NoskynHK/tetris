@@ -260,6 +260,14 @@ document.getElementById('startBtn').addEventListener('click', () => {
   paused = !paused;
 });
 
+document.getElementById('creditsBtn').addEventListener('click', () => {
+  document.getElementById('creditsModal').classList.remove('hidden');
+});
+
+document.getElementById('closeCredits').addEventListener('click', () => {
+  document.getElementById('creditsModal').classList.add('hidden');
+});
+
 playerReset();
 updateScore();
 update();
