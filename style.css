@@ -67,7 +67,7 @@ h1 {
     border: 1px solid #333;
 }
 
-#StartBtn {
+#startBtn {
     background: #00f0ff;
     color: #1a1a2e;
     border: none;
@@ -78,7 +78,7 @@ h1 {
     font-family: inherit;
 }
 
-#StartBtn:hover {
+#startBtn:hover {
     background: #00c0cc;
 }
 
@@ -90,7 +90,7 @@ h1 {
 }
 
 .hidden {
-    display: none; 
+  display: none !important;
 }
 
 #gameOverMsg {
