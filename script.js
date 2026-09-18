@@ -20,6 +20,31 @@ const COLORS = [
   '#ff0000'  // Z
 ];
 
+const toggleTouchBtn = document.getElementById('toggleTouch');
+const touchControls = document.getElementById('touchControls');
+let touchEnabled = false;
+
+toggleTouchBtn.addEventListener('click', () => {
+  touchEnabled = !touchEnabled;
+  touchControls.classList.toggle('hidden', !touchEnabled);
+  toggleTouchBtn.textContent = touchEnabled
+    ? '📱 Controlli Touch: ON'
+    : '📱 Controlli Touch: OFF';
+});
+
+function bindTouchButton(id, action) {
+  const btn = document.getElementById(id);
+  btn.addEventListener('click', () => {
+    if (!gameOver && !paused) action();
+  });
+}
+
+bindTouchButton('btnLeft', () => playerMove(-1));
+bindTouchButton('btnRight', () => playerMove(1));
+bindTouchButton('btnDown', () => playerDrop());
+bindTouchButton('btnRotate', () => playerRotate(1));
+bindTouchButton('btnDrop', () => hardDrop());
+
 const SHAPES = [
   [],
   [[1,1,1,1]],                       // I
