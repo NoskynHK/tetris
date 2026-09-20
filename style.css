@@ -215,3 +215,22 @@ h1 {
   width: 100%;
   font-size: 14px;
 }
+
+.back-btn {
+  display: inline-block;
+  background: #16213e;
+  color: #00f0ff;
+  border: 2px solid #00f0ff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: inherit;
+  margin-bottom: 15px;
+  transition: 0.2s;
+}
+
+.back-btn:hover {
+  background: #00f0ff;
+  color: #1a1a2e;
+}
