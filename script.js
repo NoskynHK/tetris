@@ -268,7 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('creditsModal').classList.add('hidden');
   });
 
-  // Controlli touch (per telefono)
+  // --- Controlli touch (per telefono) ---
   const toggleTouchBtn = document.getElementById('toggleTouch');
   const touchControls = document.getElementById('touchControls');
   let touchEnabled = false;
@@ -276,9 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
   toggleTouchBtn.addEventListener('click', () => {
     touchEnabled = !touchEnabled;
     touchControls.classList.toggle('hidden', !touchEnabled);
-    toggleTouchBtn.textContent = touchEnabled
-      ? '📱 Controlli Touch: ON'
-      : '📱 Controlli Touch: OFF';
+    updateTouchButtonText();
   });
 
   function bindTouchButton(id, action) {
@@ -293,6 +291,106 @@ document.addEventListener('DOMContentLoaded', () => {
   bindTouchButton('btnDown', () => playerDrop());
   bindTouchButton('btnRotate', () => playerRotate(1));
   bindTouchButton('btnDrop', () => hardDrop());
+
+  // --- Multilingua (IT / EN / DE) ---
+  const translations = {
+    it: {
+      title: 'TETRIS',
+      backHub: 'Torna alla Game Hub',
+      next: 'Prossimo',
+      score: 'Punteggio',
+      level: 'Livello',
+      lines: 'Righe',
+      start: 'Avvia / Pausa',
+      touchLabel: 'Controlli Touch',
+      on: 'ON',
+      off: 'OFF',
+      moveKeys: '⬅️ ➡️ : Muovi',
+      downKey: '⬇️ : Scendi veloce',
+      rotateKey: '⬆️ : Ruota',
+      dropKey: 'Spazio : Fallo cadere',
+      gameOver: 'GAME OVER',
+      credits: 'Credits',
+      programmedBy: 'Programmato da',
+      ideaBy: 'Idea di',
+      close: 'Chiudi',
+      dropBtn: '⏬ Fallo Cadere'
+    },
+    en: {
+      title: 'TETRIS',
+      backHub: 'Back to Game Hub',
+      next: 'Next',
+      score: 'Score',
+      level: 'Level',
+      lines: 'Lines',
+      start: 'Start / Pause',
+      touchLabel: 'Touch Controls',
+      on: 'ON',
+      off: 'OFF',
+      moveKeys: '⬅️ ➡️ : Move',
+      downKey: '⬇️ : Soft drop',
+      rotateKey: '⬆️ : Rotate',
+      dropKey: 'Space : Hard drop',
+      gameOver: 'GAME OVER',
+      credits: 'Credits',
+      programmedBy: 'Programmed by',
+      ideaBy: 'Idea by',
+      close: 'Close',
+      dropBtn: '⏬ Hard Drop'
+    },
+    de: {
+      title: 'TETRIS',
+      backHub: 'Zurück zum Game Hub',
+      next: 'Nächstes',
+      score: 'Punkte',
+      level: 'Level',
+      lines: 'Reihen',
+      start: 'Start / Pause',
+      touchLabel: 'Touch-Steuerung',
+      on: 'AN',
+      off: 'AUS',
+      moveKeys: '⬅️ ➡️ : Bewegen',
+      downKey: '⬇️ : Schneller fallen',
+      rotateKey: '⬆️ : Drehen',
+      dropKey: 'Leertaste : Sofort fallen lassen',
+      gameOver: 'GAME OVER',
+      credits: 'Credits',
+      programmedBy: 'Programmiert von',
+      ideaBy: 'Idee von',
+      close: 'Schließen',
+      dropBtn: '⏬ Sofort fallen lassen'
+    }
+  };
+
+  let currentLang = localStorage.getItem('tetrisLang') || 'it';
+
+  function updateTouchButtonText() {
+    const t = translations[currentLang];
+    toggleTouchBtn.textContent = `📱 ${t.touchLabel}: ${touchEnabled ? t.on : t.off}`;
+  }
+
+  function applyLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('tetrisLang', lang);
+    const t = translations[lang];
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      if (t[el.dataset.i18n]) el.textContent = t[el.dataset.i18n];
+    });
+
+    document.getElementById('btnDrop').textContent = t.dropBtn;
+    updateTouchButtonText();
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
+  });
+
+  applyLanguage(currentLang);
 
   playerReset();
   updateScore();
