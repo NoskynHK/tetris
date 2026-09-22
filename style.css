@@ -1,92 +1,93 @@
 * {
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background: #1a1a2e;
-    color: #eee;
-    font-family: 'Courier New', monospace;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+  background: #1a1a2e;
+  color: #eee;
+  font-family: 'Courier New', monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .game-container {
-    text-align: center;
+  text-align: center;
 }
 
 h1 {
-  letter-spacing: 8px; 
+  letter-spacing: 8px;
   margin-bottom: 15px;
   color: #00f0ff;
   text-shadow: 0 0 10px #00f0ff;
-}   
+}
 
 .game-area {
-    display: flex;
-    gap: 20px;
+  display: flex;
+  gap: 20px;
 }
 
 #board {
-    background: #0f0f1e;
-    border: 3px solid #00f0ff;
-    box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+  background: #0f0f1e;
+  border: 3px solid #00f0ff;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
 }
 
 .sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    width: 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 140px;
 }
 
 .panel {
-    background: #16213e;
-    border: 2px solid #444;
-    border-radius: 6px;
-    padding: 5px;
+  background: #16213e;
+  border: 2px solid #444;
+  border-radius: 6px;
+  padding: 5px;
 }
 
 .panel h3 {
-    font-size: 12px;
-    color: #aaa;
-    margin-bottom: 5px;
+  font-size: 12px;
+  color: #aaa;
+  margin-bottom: 5px;
 }
 
 .panel p {
-    font-size: 22px;
-    font-weight: bold;
-    color: #00f0ff;
+  font-size: 22px;
+  font-weight: bold;
+  color: #00f0ff;
 }
 
 #next {
-    background: #0f0f1e;
-    border: 1px solid #333;
+  background: #0f0f1e;
+  border: 1px solid #333;
 }
 
 #startBtn {
-    background: #00f0ff;
-    color: #1a1a2e;
-    border: none;
-    padding: 10px;
-    font-weight: bold;
-    border-radius: 6px;
-    cursor: pointer;
-    font-family: inherit;
+  background: #00f0ff;
+  color: #1a1a2e;
+  border: none;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  width: 100%;
 }
 
 #startBtn:hover {
-    background: #00c0cc;
+  background: #00c0cc;
 }
 
 .controls {
-    font-size: 11px;
-    color: #888;
-    text-align: left;
-    line-height: 1.6;
+  font-size: 11px;
+  color: #888;
+  text-align: left;
+  line-height: 1.6;
 }
 
 .hidden {
@@ -94,11 +95,11 @@ h1 {
 }
 
 #gameOverMsg {
-    color: #ff3860;
-    font-weight: bold;
-    font-size: 18px;
-    text-shadow: 0 0 8px #ff3860;
-}    
+  color: #ff3860;
+  font-weight: bold;
+  font-size: 18px;
+  text-shadow: 0 0 8px #ff3860;
+}
 
 #creditsBtn {
   background: #16213e;
@@ -109,6 +110,7 @@ h1 {
   cursor: pointer;
   font-family: inherit;
   font-weight: bold;
+  width: 100%;
 }
 
 #creditsBtn:hover {
@@ -165,6 +167,27 @@ h1 {
   font-family: inherit;
 }
 
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #16213e;
+  color: #00f0ff;
+  border: 2px solid #00f0ff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: inherit;
+  margin-bottom: 15px;
+  transition: 0.2s;
+}
+
+.back-btn:hover {
+  background: #00f0ff;
+  color: #1a1a2e;
+}
+
 #toggleTouch {
   background: #16213e;
   color: #00f0ff;
@@ -174,6 +197,7 @@ h1 {
   cursor: pointer;
   font-family: inherit;
   font-weight: bold;
+  width: 100%;
 }
 
 #toggleTouch:hover {
@@ -216,21 +240,39 @@ h1 {
   font-size: 14px;
 }
 
-.back-btn {
-  display: inline-block;
-  background: #16213e;
-  color: #00f0ff;
-  border: 2px solid #00f0ff;
-  padding: 8px 16px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: bold;
-  font-family: inherit;
+/* Selettore lingua */
+#langSelector {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
   margin-bottom: 15px;
-  transition: 0.2s;
 }
 
-.back-btn:hover {
+.lang-btn {
+  background: #16213e;
+  color: #eee;
+  border: 2px solid #333;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.25s ease;
+}
+
+.lang-btn:hover {
+  border-color: #00f0ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 240, 255, 0.3);
+}
+
+.lang-btn.active {
   background: #00f0ff;
   color: #1a1a2e;
+  border-color: #00f0ff;
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.6);
 }
