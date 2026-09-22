@@ -2,72 +2,79 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<title>Tetris</title>
-
-<link rel="icon" type="image/png" href="logo.png">
-<link rel="apple-touch-icon" href="logo.png">
-
+<title>🕹️|Tetris</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="game-container">
-    <h1>TETRIS</h1>
-    <a href="https://noskynhk.github.io/gamehub" class="back-btn">🎮 Torna alla Game Hub</a>
+
+    <a href="INSERISCI-QUI-IL-LINK" class="back-btn">
+      <span>🏠</span> <span data-i18n="backHub">Torna alla Game Hub</span>
+    </a>
+
+    <div id="langSelector">
+      <button class="lang-btn" data-lang="it">🇮🇹 IT</button>
+      <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
+      <button class="lang-btn" data-lang="de">🇩🇪 DE</button>
+    </div>
+
+    <h1 data-i18n="title">TETRIS</h1>
     <div class="game-area">
         <canvas id="board" width="300" height="600"></canvas>
         <div class="sidebar">
             <div class="panel">
-                <h3>Prossimo</h3>
+                <h3 data-i18n="next">Prossimo</h3>
                 <canvas id="next" width="120" height="120"></canvas>
             </div>
             <div class="panel">
-                <h3>Punteggio</h3>
+                <h3 data-i18n="score">Punteggio</h3>
                 <p id="score">0</p>
             </div>
             <div class="panel">
-                <h3>Livello</h3>
+                <h3 data-i18n="level">Livello</h3>
                 <p id="level">1</p>
             </div>
             <div class="panel">
-                <h3>Righe</h3>
+                <h3 data-i18n="lines">Righe</h3>
                 <p id="lines">0</p> 
             </div>
-            <button id="startBtn">Avvia / Pausa</button>
-<button id="toggleTouch">📱 Controlli Touch: OFF</button>
+            <button id="startBtn" data-i18n="start">Avvia / Pausa</button>
+            <button id="toggleTouch">📱 Controlli Touch: OFF</button>
 
-<div id="touchControls" class="hidden">
-  <div class="touch-row">
-    <button id="btnRotate">⟳</button>
-  </div>
-  <div class="touch-row">
-    <button id="btnLeft">⬅️</button>
-    <button id="btnDown">⬇️</button>
-    <button id="btnRight">➡️</button>
-  </div>
-  <div class="touch-row">
-    <button id="btnDrop">⏬ Fallo Cadere</button>
-  </div>
-</div>
+            <div id="touchControls" class="hidden">
+              <div class="touch-row">
+                <button id="btnRotate">⟳</button>
+              </div>
+              <div class="touch-row">
+                <button id="btnLeft">⬅️</button>
+                <button id="btnDown">⬇️</button>
+                <button id="btnRight">➡️</button>
+              </div>
+              <div class="touch-row">
+                <button id="btnDrop">⏬ Fallo Cadere</button>
+              </div>
+            </div>
+
             <p class="controls">
-                ⬅️ ➡️ : Muovi<br>
-                ⬇️ : scendi Veloce<br>
-                ⬆️ : Ruota<br>
-                Spazio : Fallo Cadere
+                <span data-i18n="moveKeys">⬅️ ➡️ : Muovi</span><br>
+                <span data-i18n="downKey">⬇️ : Scendi veloce</span><br>
+                <span data-i18n="rotateKey">⬆️ : Ruota</span><br>
+                <span data-i18n="dropKey">Spazio : Fallo cadere</span>
             </p>
-            <p id="gameOverMsg" class="hidden">GAME OVER</p>
-            <button id="creditsBtn">Credits</button>
+            <p id="gameOverMsg" class="hidden" data-i18n="gameOver">GAME OVER</p>
+            <button id="creditsBtn" data-i18n="credits">Credits</button>
 
-<div id="creditsModal" class="hidden">
-  <div class="credits-box">
-    <h2>TETRIS</h2>
-    <p>Programmed by <strong>NoskynHK</strong></p>
-    <p>Idea by <strong>Sig.Lev</strong></p>
-    <button id="closeCredits">Close</button>
-  </div>
-</div>
+            <div id="creditsModal" class="hidden">
+              <div class="credits-box">
+                <h2 data-i18n="title">TETRIS</h2>
+                <p><span data-i18n="programmedBy">Programmato da</span> <strong>NoskynHK</strong></p>
+                <p><span data-i18n="ideaBy">Idea di</span> <strong>Sig.Lev</strong></p>
+                <button id="closeCredits" data-i18n="close">Chiudi</button>
+              </div>
+            </div>
         </div>
     </div>
   </div>
 <script src="script.js"></script>
 </body>
-</html>              
+</html>
